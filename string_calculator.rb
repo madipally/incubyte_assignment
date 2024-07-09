@@ -1,6 +1,8 @@
 class StringCalculator
     def add(input)
       return 0 if input.empty?
-      input.split(',').map(&:to_i).sum
+      delimiters = [",", "\n"]
+      numbers = input.split(Regexp.union(delimiters)).map(&:to_i)
+      numbers.sum
     end
 end
