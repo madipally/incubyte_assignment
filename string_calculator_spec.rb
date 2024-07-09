@@ -52,5 +52,19 @@ RSpec.describe StringCalculator do
           expect(calculator.add("//[$$$]\n1$$$2$$$3")).to eq(6)
         end
       end
+
+      context 'with a large number of inputs' do
+        it 'returns the correct sum for 1000 numbers' do
+          input = (1..1000).to_a.join(',')
+          expected_sum = (1..1000).sum
+          expect(calculator.add(input)).to eq(expected_sum)
+        end
+  
+        it 'returns the correct sum for 10000 numbers' do
+          input = (1..10000).to_a.join(',')
+          expected_sum = (1..10000).sum
+          expect(calculator.add(input)).to eq(expected_sum)
+        end
+      end
     end
   end
