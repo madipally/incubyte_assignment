@@ -22,5 +22,11 @@ RSpec.describe StringCalculator do
           expect(calculator.add("1")).to eq(1)
         end
       end
+
+      context 'with two numbers separated by a newline' do
+        it 'returns their sum' do
+          expect(calculator.add("1\n2")).to eq(3)
+        end
+      end
     end
   end
