@@ -40,5 +40,11 @@ RSpec.describe StringCalculator do
           expect { calculator.add("2,-4,3,-5") }.to raise_error("Negatives not allowed: -4,-5")
         end
       end
+
+      context 'with multiple custom delimiters' do
+        it 'returns the sum of the numbers' do
+          expect(calculator.add("//[*][%]\n1*2%3")).to eq(6)
+        end
+      end
     end
   end
